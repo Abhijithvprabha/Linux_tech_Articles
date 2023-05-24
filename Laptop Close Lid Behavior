@@ -1,0 +1,8 @@
+To change the way Fedora behaves when closing the lid on laptop, perform the following steps as root user:
+
+Edit /etc/systemd/logind.conf file:
+Find text #HandleLidSwitch=suspend
+Change suspend to ignore and remove the #
+Save file with changes
+Restart the login service:
+systemctl restart systemd-logind.services
