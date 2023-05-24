@@ -1,0 +1,30 @@
+How To Enable Remote Desktop Protocol Using xrdp on Fedora38
+
+
+
+Remote Desktop Protocol (RDP) is a secure network communications protocol developed by Microsoft that allows users to remotely access and interact with the graphical user interface of a remote Windows server. 
+It enables network administrators to remotely diagnose problems that individual users encounter and gives users remote access to their physical work desktop computers.
+The user employs RDP client software for this purpose, while the other computer must run RDP server software.
+Remote Desktop Protocol (RDP) is commonly used for Windows remote connections. However, you can also access and interact with the graphical user interface of a remote Linux server by using xrdp, an open-source implementation of the RDP server.
+XRDP supports features like clipboard transfer, audio redirection, and drive redirection
+
+
+
+Steps:
+
+	1) Install xrdp
+		a. open terminal
+		b. run sudo yum install xrdp -y
+	2) Enable port 3389 
+		a. sudo firewall-cmd --add -port=3389/tcp
+		b. sudo firewall-cmd --reload
+	3) Enable xrdp and it will auto run on startup
+		a. sudo systemctl enable xrdp
+		b. sudo sytemctl start xrdp
+		c. systemctl status xrdp
+		
+Connect from Windows Desktop using the RDP tool
+
+  a. Enter the ip add of the fedora machine
+  b. Enter credentials on the login windows you get
+  (Note: You can't access RDP when a user signed in the Fedora machine, sign out the local session first)
